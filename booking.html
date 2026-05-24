@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="43200">
+  <title>AlUla Vision 2030 — Book a Tour</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="page-background" style="background-image: url('images/backgrounds/alula-bg.jpg');">
+
+  <header>
+    <div class="top-bar">
+      <div class="contact-info">
+        <a href="mailto:info@alula-vision.sa">📧 info@alula-vision.sa</a>
+        <a href="tel:+966112589999">📞 +966 11 258 9999</a>
+      </div>
+      <div class="social-links">
+        <a href="https://twitter.com" target="_blank">𝕏</a>
+        <a href="https://instagram.com" target="_blank">📷</a>
+      </div>
+    </div>
+    <div class="logo-bar">
+      <div class="logo-section">
+        <img src="images/logo/imsiu-logo.png" alt="IMSIU Logo">
+        <img src="images/logo/ccis-logo.png" alt="CCIS Logo">
+      </div>
+      <div class="site-title">AlUla<span>VISION 2030</span></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tourism.html">Discover AlUla</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html" class="active">Book a Tour</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="chatbot.html">AI Assistant</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Book Your AlUla Tour</h1>
+    <p>Reserve your guided tour to one of AlUla's iconic destinations.</p>
+
+    <div class="alert alert-info">
+      <strong>Note:</strong> Booking is available for registered users only.
+      Please <a href="login.html">sign in</a> or <a href="register.html">register</a> first.
+    </div>
+
+    <div class="form-container" style="max-width: 600px;">
+      <form action="php/save_booking.php" method="POST">
+
+        <div class="form-group">
+          <label for="place">Select Destination <span style="color:red">*</span></label>
+          <select id="place" name="place" required onchange="updatePrice()">
+            <option value="">-- Select a destination --</option>
+            <option value="Hegra" data-price="250">Hegra (Madain Saleh) — 250 SAR</option>
+            <option value="Old Town" data-price="120">AlUla Old Town — 120 SAR</option>
+            <option value="Elephant Rock" data-price="80">Elephant Rock — 80 SAR</option>
+            <option value="Dadan" data-price="180">Dadan & Jabal Ikmah — 180 SAR</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Tour Date <span style="color:red">*</span></label>
+          <input type="date" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="time">Tour Time <span style="color:red">*</span></label>
+          <select id="time" name="time" required>
+            <option value="">-- Select time --</option>
+            <option value="08:00">08:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="17:00">05:00 PM (Sunset)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="guests">Number of Guests <span style="color:red">*</span></label>
+          <input type="number" id="guests" name="guests" required min="1" max="10" value="1" onchange="updateTotal()">
+        </div>
+
+        <div class="form-group">
+          <label for="special_requests">Special Requests</label>
+          <textarea id="special_requests" name="special_requests" rows="3"></textarea>
+        </div>
+
+        <div class="alert alert-info">
+          <strong>Total Price:</strong> <span id="total-price">0</span> SAR
+        </div>
+
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2nd-2026-27 / IMSIU / CCIS — IS337 Group Project</p>
+  </footer>
+
+  <script>
+    function updatePrice() {
+      updateTotal();
+    }
+    function updateTotal() {
+      const select = document.getElementById('place');
+      const guests = parseInt(document.getElementById('guests').value) || 0;
+      const price = parseInt(select.options[select.selectedIndex]?.dataset.price) || 0;
+      document.getElementById('total-price').textContent = price * guests;
+    }
+  </script>
+</body>
+</html>

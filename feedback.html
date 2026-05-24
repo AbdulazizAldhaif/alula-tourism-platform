@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="43200">
+  <title>AlUla Vision 2030 — Feedback</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .feedback-list {
+      margin-top: 40px;
+    }
+    .feedback-item {
+      background: var(--color-white);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 15px;
+      border-left: 4px solid var(--color-gold);
+    }
+    .feedback-item .author {
+      font-weight: bold;
+      color: var(--color-terracotta);
+    }
+    .feedback-item .date {
+      color: var(--color-text-light);
+      font-size: 0.85rem;
+    }
+    .stars {
+      color: var(--color-gold);
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body class="page-background" style="background-image: url('images/backgrounds/alula-bg.jpg');">
+
+  <header>
+    <div class="top-bar">
+      <div class="contact-info">
+        <a href="mailto:info@alula-vision.sa">📧 info@alula-vision.sa</a>
+        <a href="tel:+966112589999">📞 +966 11 258 9999</a>
+      </div>
+      <div class="social-links">
+        <a href="https://twitter.com" target="_blank">𝕏</a>
+        <a href="https://instagram.com" target="_blank">📷</a>
+      </div>
+    </div>
+    <div class="logo-bar">
+      <div class="logo-section">
+        <img src="images/logo/imsiu-logo.png" alt="IMSIU Logo">
+        <img src="images/logo/ccis-logo.png" alt="CCIS Logo">
+      </div>
+      <div class="site-title">AlUla<span>VISION 2030</span></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tourism.html">Discover AlUla</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Book a Tour</a></li>
+        <li><a href="feedback.html" class="active">Feedback</a></li>
+        <li><a href="chatbot.html">AI Assistant</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Share Your Experience</h1>
+    <p>Tell us what you think — your feedback helps us improve and inspires future visitors.</p>
+
+    <div class="form-container">
+      <form action="php/save_feedback.php" method="POST">
+
+        <div class="form-group">
+          <label for="name">Your Name <span style="color:red">*</span></label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email <span style="color:red">*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="rating">Rating <span style="color:red">*</span></label>
+          <select id="rating" name="rating" required>
+            <option value="">-- Select --</option>
+            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+            <option value="4">⭐⭐⭐⭐ Very Good</option>
+            <option value="3">⭐⭐⭐ Good</option>
+            <option value="2">⭐⭐ Fair</option>
+            <option value="1">⭐ Poor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Feedback <span style="color:red">*</span></label>
+          <textarea id="message" name="message" rows="5" required minlength="10"></textarea>
+        </div>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </div>
+
+    <!-- ===== Display previous feedback ===== -->
+    <section class="feedback-list">
+      <h2>What Visitors Are Saying</h2>
+
+      <!-- These will be loaded dynamically from PHP. Keeping samples for layout reference. -->
+      <div class="feedback-item">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"AlUla is breathtaking! Hegra was the highlight of my trip — a true wonder of Saudi Arabia."</p>
+        <p><span class="author">— Sara A.</span> <span class="date">| 2026-04-15</span></p>
+      </div>
+
+      <div class="feedback-item">
+        <div class="stars">⭐⭐⭐⭐</div>
+        <p>"The Old Town tour was amazing. The mud-brick architecture is beautifully preserved."</p>
+        <p><span class="author">— Mohammed K.</span> <span class="date">| 2026-04-10</span></p>
+      </div>
+
+      <!-- To load from DB, replace above with PHP include:
+           <?php include 'php/get_feedback.php'; ?> -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2nd-2026-27 / IMSIU / CCIS — IS337 Group Project</p>
+  </footer>
+
+</body>
+</html>

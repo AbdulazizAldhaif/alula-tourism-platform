@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="43200">
+  <title>AlUla Vision 2030 — Sign In</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="page-background" style="background-image: url('images/backgrounds/alula-bg.jpg');">
+
+  <header>
+    <div class="top-bar">
+      <div class="contact-info">
+        <a href="mailto:info@alula-vision.sa">📧 info@alula-vision.sa</a>
+        <a href="tel:+966112589999">📞 +966 11 258 9999</a>
+      </div>
+      <div class="social-links">
+        <a href="https://twitter.com" target="_blank">𝕏</a>
+        <a href="https://instagram.com" target="_blank">📷</a>
+      </div>
+    </div>
+    <div class="logo-bar">
+      <div class="logo-section">
+        <img src="images/logo/imsiu-logo.png" alt="IMSIU Logo">
+        <img src="images/logo/ccis-logo.png" alt="CCIS Logo">
+      </div>
+      <div class="site-title">AlUla<span>VISION 2030</span></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tourism.html">Discover AlUla</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Book a Tour</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="chatbot.html">AI Assistant</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html" class="active">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Sign In</h1>
+    <p>Welcome back! Sign in to access your bookings and personalized recommendations.</p>
+
+    <div class="form-container">
+      <form action="php/login_user.php" method="POST">
+
+        <div class="form-group">
+          <label for="email">Email <span style="color:red">*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password <span style="color:red">*</span></label>
+          <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit">Sign In</button>
+
+        <p style="text-align:center; margin-top: 15px;">
+          New here? <a href="register.html" style="color: var(--color-terracotta);">Create an account</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2nd-2026-27 / IMSIU / CCIS — IS337 Group Project</p>
+  </footer>
+
+</body>
+</html>
